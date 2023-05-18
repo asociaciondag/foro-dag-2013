@@ -1,0 +1,79 @@
+<!doctype html>
+
+<html class="no-js" lang="gl">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>{{ titulo }} - DAG</title>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="author" content="DAG - Asociación Galega de Deseño">
+
+        <link rel="stylesheet" href="./styles.css">
+    </head>
+
+    <body>
+        <!-- HEADER -->
+        <nav class="page-header wrapper" id="main-header">
+            <a href="https://dag.gal" class="page-logo" title="Asociación Galega de Deseño">
+                <img src="./img/dag.svg" inline>
+            </a>
+        </nav>
+        <!-- /HEADER -->
+
+        <article class="project wrapper">
+          <header>
+            <img src="./img/header.svg" class="project-img">
+
+            <div class="sr-only">
+              <h1>{{ titulo | safe }}</h1>
+              {{ subtitulo | md | safe }}
+            </div>
+          </header>
+
+          <div class="project-intro">
+            {{ intro | md | safe }}
+          </div>
+
+          <ul class="project-news">
+            {% for nova in novas %}
+            <li>
+              <a href="{{ nova.url }}">
+                <strong>{{ nova.titulo }}</strong>
+                <em>{{ nova.medio }}</em>
+              </a>
+            </li>
+            {% endfor %}
+          </ul>
+
+          <section class="project-agenda">
+            <h2>{{ programa.titulo }}</h2>
+            <ul>
+              {% for evento in programa.info %}
+              <li>
+                <time>{{ evento.hora }}</time>
+                {{ evento.info | md | safe }}
+              </li>
+              {% endfor %}
+            </ul>
+          </section>
+
+          <section class="project-propostas">
+            <header>
+              <h2>{{ propostas.titulo }}</h2>
+              <p>{{ propostas.subtitulo }}</p>
+            </header>
+
+            <ul>
+              {% for item in propostas.propostas %}
+              <li class="proposta">
+                <h3>{{ item.titulo }}</h3>
+                <p class="proposta-subtitulo">{{ item.subtitulo }}</p>
+                {{ item.info | md | safe }}
+              </li>
+              {% endfor %}
+            </ul>
+          </section>
+        </article>
+    </body>
+</html>

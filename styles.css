@@ -1,0 +1,189 @@
+@import "https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.css";
+@import "isaac-font.css";
+@import "variables.css";
+@import "common.css";
+@import "wrappers.css";
+
+/* Variables */
+:root {
+	--color-back: #fff;
+	--color-back-dark: #E0DFDD;
+	--color-front: black;
+}
+html {
+  background: white;
+}
+
+/**
+ * Barra superior común a todos os proxectos
+ */
+.page-header {
+	position: fixed;
+	background: var(--color-front);
+	color: rgba(255, 255, 255, 0.5);
+	top: 0;
+	left: 0;
+	width: 100%;
+	box-sizing: border-box;
+	padding-top: 0.5em;
+	padding-bottom: 0.5em;
+	font-size: 0.9rem;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
+	z-index: 2;
+
+	& .page-logo {
+		display: flex;
+		color: inherit;
+		text-decoration: none;
+		outline: 0;
+    color: var(--color-back);
+
+		& strong {
+			font-weight: var(--fw-light);
+			display: block;
+			font-size: .8rem;
+			max-width: 10em;
+			line-height: 1;
+		}
+
+		& svg {
+			margin-right: 0.5em;
+		}
+
+		& path {
+			fill: var(--color-back);
+		}
+
+		&:hover {
+			color: white;
+
+			& path {
+				fill: white;
+			}
+		}
+	}
+}
+
+.project {
+  max-width: 1200px;
+  margin-top: 5vh;
+}
+
+.project-img {
+  display: block;
+  width: 100%;
+}
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap; /* added line */
+  border: 0;
+}
+
+.project-intro {
+  font-size: var(--fs-18);
+  line-height: 1.5;
+  column-width: 20em;
+  margin-top: 5vh;
+
+  & p {
+    margin-top: 0;
+  }
+}
+.project-agenda {
+  margin-top: 10vh;
+
+  & h2 {
+    font-size: var(--fs-48);
+  }
+  & ul {
+    list-style: none;
+    padding: 0;
+    max-width: 45em;
+  }
+
+  & li {
+    display: grid;
+    grid-template-columns: 7em 1fr;
+    column-gap: 2em;
+  }
+
+  & time {
+    font-weight: bold;
+    grid-column: 1;
+  }
+  & p {
+    margin-top: 0;
+    grid-column: 2;
+  }
+}
+
+.project-propostas {
+  margin-top: 10vh;
+
+  & h2 {
+    font-size: var(--fs-48);
+    margin-bottom: 0;
+  }
+  & header p {
+    margin-top: .2em;
+    font-size: var(--fs-26);
+  }
+
+  & ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 2vh;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    column-gap: min(5vw, 50px);
+    row-gap: 5vh;
+    line-height: 1.4;
+  }
+
+  & h3 {
+    font-size: var(--fs-26);
+    margin-bottom: 0;
+  }
+  .proposta-subtitulo {
+    margin-top: .5em;
+    margin-bottom: 2em;
+  }
+}
+.project-news {
+  list-style: none;
+  margin-top: 5vh;
+  padding: 1em 0;
+  border-top: solid 1px var(--color-light);
+  border-bottom: solid 1px var(--color-light);
+
+  & strong {
+    font-size: var(--fs-26);
+    display: block;
+  }
+  & em {
+    font-style: normal;
+  }
+
+  & a {
+    color: inherit;
+    text-decoration: none;
+  }
+  & a:hover strong {
+    text-decoration: underline;
+  }
+
+  & li + li {
+    margin-top: 1em;
+    padding-top: 1em;
+    border-top: solid 1px var(--color-light);
+  }
+}
